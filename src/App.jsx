@@ -99,12 +99,12 @@ function App() {
       </div>
       <Separator></Separator>
       <div className="max-w-4xl my-10 mx-auto py-4 px-7 flex flex-col text-center mb-20">
-        <p className="text-3xl font-bold">Get in touch</p>
-        <p className="my-4 text-medium font-medium">
+        <p className="text-2xl sm:text-3xl font-bold">Get in touch</p>
+        <p className="my-4 text-sm sm:text-medium font-medium">
           Want to connect? You choose how.
         </p>
 
-        <div className="flex w-60 my-5 mx-auto items-center justify-around">
+        <div className="flex my-5 mx-auto items-center gap-6">
           <a target="blank" href="https://github.com/ks-fsdev">
             <img
               src="https://img.icons8.com/?size=100&id=AZOZNnY73haj&format=png&color=000000"
