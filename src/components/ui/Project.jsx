@@ -9,26 +9,11 @@ import {
 import { projects } from "../../../projects";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { img } from "motion/react-client";
-import loading from "../../assets/loading.gif";
 
 function Project() {
   let [showMore, setShowMore] = useState(false);
   const featured = projects.slice(0, 3);
   const additional = projects.slice(3);
-
-  const [MediaLoaded, setMediaLoaded] = useState(false);
-
-  useEffect(() => {
-    const handleMediaLoad = () => setMediaLoaded(true);
-
-    if (document.readyState == "complete") {
-      setMediaLoaded(true);
-    } else {
-      window.addEventListener("load", handleMediaLoad);
-      return () => window.removeEventListener("load", handleMediaLoad);
-    }
-  }, []);
 
   return (
     <div className="">
@@ -37,19 +22,11 @@ function Project() {
           <div className="flex flex-col sm:flex-row max-w-4xl mx-auto gap-6 items-center justify-center">
             <div className="w-full lg:w-[30%] max-w-md mx-auto lg:mx-0">
               <h3 className="font-bold mb-4">{project.project}</h3>
-              {!MediaLoaded ? (
-                <>
-                  <div className="w-40 h-40 mx-auto flex item-center justify-center">
-                    <img src={loading} alt="" className="w-10 object-contain" />
-                  </div>
-                </>
-              ) : (
-                <Safari
-                  url={project.demo}
-                  className=""
-                  videoSrc={project.media}
-                />
-              )}
+              <Safari
+                url={project.demo}
+                className=""
+                videoSrc={project.media}
+              />
             </div>
 
             <div className="w-full flex flex-col justify-center lg:w-[60%] lg:text-left">
@@ -122,23 +99,11 @@ function Project() {
                 <div className="flex flex-col sm:flex-row max-w-4xl mx-auto gap-6 items-center justify-center">
                   <div className="w-full lg:w-[30%] max-w-md mx-auto lg:mx-0">
                     <h3 className="font-bold mb-4">{project.project}</h3>
-                    {!MediaLoaded ? (
-                      <>
-                        <div className="w-40 h-40 mx-auto flex item-center justify-center">
-                          <img
-                            src={loading}
-                            alt=""
-                            className="w-10 object-contain"
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <Safari
-                        url={project.demo}
-                        className=""
-                        videoSrc={project.media}
-                      />
-                    )}
+                    <Safari
+                      url={project.demo}
+                      className=""
+                      videoSrc={project.media}
+                    />
                   </div>
 
                   <div className="w-full flex flex-col justify-center lg:w-[60%] text-center lg:text-left">
